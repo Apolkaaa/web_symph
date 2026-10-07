@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>веб-синтезатор</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page_shell">
+      <section class="top_panel">
+        <div>
+          <p class="eyebrow">ambient glass sequencer</p>
+          <h1>koshi / hang / techno</h1>
+        </div>
+
+        <div class="transport">
+          <button class="main_button" id="start_button" type="button">
+            start
+          </button>
+          <button id="stop_button" type="button">stop</button>
+        </div>
+      </section>
+
+      <section class="control_panel" aria-label="melody">
+        <div class="button_group" id="melody_buttons">
+          <button class="is_active" data_melody="morning_glass" type="button">
+            morning_glass
+          </button>
+          <button data_melody="soft_rain" type="button">soft_rain</button>
+          <button data_melody="leaf_breath" type="button">leaf_breath</button>
+        </div>
+
+        <label>
+          <span>tempo</span>
+          <input id="tempo_slider" type="range" min="48" max="92" value="66" />
+          <strong id="tempo_value">66</strong>
+        </label>
+
+        <label>
+          <span>breath</span>
+          <input id="breath_slider" type="range" min="0" max="100" value="64" />
+          <strong id="breath_value">64</strong>
+        </label>
+
+        <label>
+          <span>shimmer</span>
+          <input
+            id="shimmer_slider"
+            type="range"
+            min="0"
+            max="100"
+            value="54"
+          />
+          <strong id="shimmer_value">54</strong>
+        </label>
+      </section>
+
+      <section class="mixer_panel" aria-label="mixer">
+        <label>
+          <span>koshi</span>
+          <input id="koshi_level" type="range" min="0" max="100" value="52" />
+        </label>
+        <label>
+          <span>hang</span>
+          <input id="hang_level" type="range" min="0" max="100" value="64" />
+        </label>
+        <label>
+          <span>wood</span>
+          <input id="wood_level" type="range" min="0" max="100" value="34" />
+        </label>
+        <label>
+          <span>pad</span>
+          <input id="pad_level" type="range" min="0" max="100" value="46" />
+        </label>
+        <label>
+          <span>bass</span>
+          <input id="sub_level" type="range" min="0" max="100" value="32" />
+        </label>
+        <label>
+          <span>kick</span>
+          <input id="pulse_level" type="range" min="0" max="100" value="68" />
+        </label>
+        <label>
+          <span>noise</span>
+          <input id="tick_level" type="range" min="0" max="100" value="30" />
+        </label>
+      </section>
+
+      <section class="deck_panel" aria-label="decks">
+        <article class="deck_card" data_deck="hang">
+          <button
+            class="deck_button is_active"
+            data_deck_button="hang"
+            type="button"
+          >
+            hang_deck
+          </button>
+          <div class="disc disc_hang" id="hang_disc">
+            <img class="disc_image is_active" src="assets/r_1.png" alt="" />
+            <img class="disc_image" src="assets/r_2.png" alt="" />
+            <img class="disc_image" src="assets/r_3.png" alt="" />
+          </div>
+        </article>
+        <article class="deck_card" data_deck="techno">
+          <button
+            class="deck_button is_active"
+            data_deck_button="techno"
+            type="button"
+          >
+            techno_deck
+          </button>
+          <div class="disc disc_techno" id="techno_disc">
+            <img class="disc_image is_active" src="assets/i_1.png" alt="" />
+            <img class="disc_image" src="assets/i_2.png" alt="" />
+            <img class="disc_image" src="assets/i_3.png" alt="" />
+          </div>
+        </article>
+      </section>
+
+      <section class="koshi_panel" aria-label="koshi notes">
+        <button class="koshi_note" data_degree="31" type="button">
+          koshi_1
+        </button>
+        <button class="koshi_note" data_degree="27" type="button">
+          koshi_2
+        </button>
+        <button class="koshi_note" data_degree="34" type="button">
+          koshi_3
+        </button>
+        <button class="koshi_note" data_degree="29" type="button">
+          koshi_4
+        </button>
+        <button class="koshi_note" data_degree="36" type="button">
+          koshi_5
+        </button>
+        <button class="koshi_note" data_degree="31" type="button">
+          koshi_6
+        </button>
+      </section>
+
+      <section class="nature_panel" aria-label="nature">
+        <div class="nature_item">
+          <button data_nature="rain" type="button">rain</button>
+          <input
+            id="rain_level"
+            type="range"
+            min="0"
+            max="100"
+            value="44"
+            aria-label="rain level"
+          />
+        </div>
+        <div class="nature_item">
+          <button data_nature="sea" type="button">sea</button>
+          <input
+            id="sea_level"
+            type="range"
+            min="0"
+            max="100"
+            value="42"
+            aria-label="sea level"
+          />
+        </div>
+        <div class="nature_item">
+          <button data_nature="leaves" type="button">leaves</button>
+          <input
+            id="leaves_level"
+            type="range"
+            min="0"
+            max="100"
+            value="36"
+            aria-label="leaves level"
+          />
+        </div>
+        <div class="nature_item">
+          <button data_nature="birds" type="button">birds</button>
+          <input
+            id="birds_level"
+            type="range"
+            min="0"
+            max="100"
+            value="38"
+            aria-label="birds level"
+          />
+        </div>
+      </section>
+
+      <section
+        class="sequence_panel"
+        id="sequence_panel"
+        aria-label="sequences"
+      ></section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
